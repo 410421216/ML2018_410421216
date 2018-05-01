@@ -1,3 +1,4 @@
+import PIL
 from PIL import Image
 import numpy
 import scipy.misc
@@ -8,4 +9,4 @@ I = Image.open("I.png")  #加密前
 E = Image.open("E.png")  #加密後
 Eprime = Image.open("Eprime.png")  #解鎖圖
 
-im.show()
+key1.show()
