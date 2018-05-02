@@ -30,10 +30,10 @@ Eprime = numpy.array(Image.open("Eprime.png"))
 epoch = 1
 MaxlterLimit = 100
 
-w1 = numpy.array([random.randint(0,100),random.randint(0,100),random.randint(0,100)])
-w2 = numpy.zeros(3,dtype = 'int')
+w1 = numpy.array([random.uniform(-100,100),random.uniform(-100,100),random.uniform(-100,100)])
+w2 = numpy.zeros(3,dtype = 'float')
 
-while epoch == 1 or epoch < MaxlterLimit and w2-w1 > 0.001:
+while epoch == 1 or epoch < MaxlterLimit and abs(w2[0] - w1[0]) > 0.000001 or abs(w2[1] - w1[1]) > 0.000001 or abs(w2[2] - w1[2]) > 0.000001:
     
     w1[0] = w2[0]
     w1[1] = w2[1]
@@ -51,10 +51,10 @@ while epoch == 1 or epoch < MaxlterLimit and w2-w1 > 0.001:
 
 print (epoch,w2[0],w2[1],w2[2])
 
-ansimg = numpy.zeros((400,300),dtype = 'u1')
+ansimg = numpy.zeros((300,400),dtype = 'float')
 
 for i in range(0,300):
     for j in range(0,400):
-        ansimg[i][j] = (Eprime[i][j] - w2[0] * key1[i][j] - w2[1] * key2[i][j])/w2[3]
+        ansimg[i][j] = (Eprime[i][j] - w2[0] * key1[i][j] - w2[1] * key2[i][j])/w2[2]
 
-ansimg.save('answer.png')
+scipy.misc.imsave('answer.png',ansimg)
