@@ -30,24 +30,25 @@ Eprime = numpy.array(Image.open("Eprime.png"))
 epoch = 1
 MaxlterLimit = 100
 
-w1 = numpy.array([random.uniform(-100,100),random.uniform(-100,100),random.uniform(-100,100)])
+w1 = numpy.array([random.uniform(-1,1),random.uniform(-1,1),random.uniform(-1,1)])
 w2 = numpy.zeros(3,dtype = 'float')
 
-while epoch == 1 or epoch < MaxlterLimit and abs(w2[0] - w1[0]) > 0.000001 or abs(w2[1] - w1[1]) > 0.000001 or abs(w2[2] - w1[2]) > 0.000001:
+while epoch == 1 or (epoch < MaxlterLimit and (abs(w2[0] - w1[0]) > 0.00000001 and abs(w2[1] - w1[1]) > 0.00000001 and abs(w2[2] - w1[2]) > 0.00000001)):
     
-    w1[0] = w2[0]
-    w1[1] = w2[1]
-    w1[2] = w2[2]
+    w2[0] = w1[0]
+    w2[1] = w1[1]
+    w2[2] = w1[2]
     
     for i in range(0,300):
         for j in range(0,400):
             a = w1[0] * key1[i][j] + w1[1] * key2[i][j] + w1[2] * I[i][j]
             e = E[i][j] - a
-            w2[0] = w1[0] + 0.00001 * e * key1[i][j]
-            w2[1] = w1[1] + 0.00001 * e * key2[i][j]
-            w2[2] = w1[2] + 0.00001 * e * I[i][j]
+            w1[0] = w1[0] + 0.00001 * e * key1[i][j]
+            w1[1] = w1[1] + 0.00001 * e * key2[i][j]
+            w1[2] = w1[2] + 0.00001 * e * I[i][j]
             
     epoch += 1
+    print (epoch)
 
 print (epoch,w2[0],w2[1],w2[2])
 
