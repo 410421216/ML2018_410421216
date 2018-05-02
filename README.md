@@ -18,7 +18,7 @@ w2 = 0.661381901042
 w3 = 0.0892395257167  
 使用training algorithm通過兩個epoch後得到  
   
-D.  
+D.    
 ![image](https://github.com/410421216/ML2018_410421216/blob/master/data%26image/answer.png)  
   
 E.  
