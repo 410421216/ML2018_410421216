@@ -21,6 +21,7 @@ w3 = 0.0892395257167  
 D.    
 ![image](https://github.com/410421216/ML2018_410421216/blob/master/data%26image/answer.png)   
            
+           
 E.  
 第一個遇到的問題是github的上傳與同步，這次花了幾個小時終於弄懂了github的同步用法。       
  
